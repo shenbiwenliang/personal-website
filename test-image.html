@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG图片测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .image-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>PNG图片加载测试</h1>
+
+    <div class="image-container">
+        <h3>原始PNG图片</h3>
+        <img src="tupian/image_871480319984165.png" alt="FPV无人机作品"
+             onload="console.log('图片加载成功'); this.style.border='2px solid green';"
+             onerror="console.log('图片加载失败'); this.style.border='2px solid red';"
+             style="border: 2px solid #ccc;">
+        <p id="status">检查图片是否正确加载...</p>
+    </div>
+
+    <script>
+        // 检查图片加载状态
+        setTimeout(() => {
+            const img = document.querySelector('img');
+            const status = document.getElementById('status');
+            if (img.complete && img.naturalHeight !== 0) {
+                status.textContent = '✅ 图片加载成功！';
+                status.className = 'success';
+            } else {
+                status.textContent = '❌ 图片加载失败，请检查文件路径';
+                status.className = 'error';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

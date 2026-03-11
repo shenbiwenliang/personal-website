@@ -24,7 +24,15 @@
       "Bash(curl -I https://shenbiwenliang.github.io/personal-website/)",
       "Bash(curl https://shenbiwenliang.github.io/personal-website/ | grep -i \"image_871480319984165.png\")",
       "Bash(curl -s https://shenbiwenliang.github.io/personal-website/ | grep \"image_871480319984165.png\")",
-      "WebFetch(domain:shenbiwenliang.github.io)"
+      "WebFetch(domain:shenbiwenliang.github.io)",
+      "Bash(curl -s https://api.github.com/repos/shenbiwenliang/personal-website/contents/tupian/image_871480319984165.png)",
+      "Bash(ping -c 4 github.com)",
+      "Bash(cd \"C:\\\\Users\\\\kmd123\\\\Desktop\\\\claude\" && python -m http.server 8000)",
+      "Bash(curl -s https://shenbiwenliang.github.io/personal-website/ | grep -i \"fpv\\\\|drone\\\\|image\")",
+      "Bash(cd \"C:\\\\Users\\\\kmd123\\\\Desktop\\\\claude\" && python -c \"import http.server, socketserver; print\\('Starting server on port 8000'\\); socketserver.TCPServer\\(\\('', 8000\\), http.server.SimpleHTTPRequestHandler\\).serve_forever\\(\\)\")",
+      "Bash(tasklist | findstr \"python\")",
+      "Bash(git remote:*)",
+      "Bash(git revert:*)"
     ]
   }
 }
