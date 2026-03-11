@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -I \"https://shenbiwenliang.github.io/personal-website\" | head -5)",
+      "Bash(curl -s \"https://shenbiwenliang.github.io/personal-website\" | grep -o \"四旋翼\\\\|穿越机\\\\|✈️\\\\|🏎️\" | head -5)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl -s \"https://shenbiwenliang.github.io/personal-website\" | head -20)",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | head -20)",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -o \"四旋翼\\\\|穿越机\\\\|✈️\\\\|🏎️\" | head -5)",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -A5 -B5 \"穿越机\")",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -A20 \"四旋翼\\\\|穿越机\")",
+      "Bash(curl -H \"Cache-Control: no-cache\" -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -o \"四旋翼\\\\|穿越机\\\\|✈️\\\\|🏎️\" | head -5)",
+      "Bash(curl -I -L \"https://shenbiwenliang.github.io/personal-website\" | grep -i \"etag\\\\|cache-control\")",
+      "Bash(chmod +x deploy-auto.sh)",
+      "Bash(chmod +x check-site.sh)",
+      "Bash(./check-site.sh)",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -A10 \"四旋翼\\\\|穿越机\\\\|✈️\\\\|🏎️\")",
+      "Bash(curl -H \"Cache-Control: no-cache, no-store, must-revalidate\" -H \"Pragma: no-cache\" -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -A5 -B5 \"✈️.*FPV四旋翼\\\\|🏎️.*竞速四旋翼\")",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep \"FPV四旋翼\")",
+      "Bash(curl -L -s \"https://shenbiwenliang.github.io/personal-website\" | grep -o \"FPV四旋翼\\\\|竞速四旋翼\\\\|✈️\\\\|🏎️\" | head -10)",
+      "Bash(cd \"C:\\\\Users\\\\kmd123\\\\Desktop\\\\claude\" && ./deploy.sh)",
+      "Bash(curl -I https://shenbiwenliang.github.io/personal-website/)",
+      "Bash(curl https://shenbiwenliang.github.io/personal-website/ | grep -i \"image_871480319984165.png\")",
+      "Bash(curl -s https://shenbiwenliang.github.io/personal-website/ | grep \"image_871480319984165.png\")",
+      "WebFetch(domain:shenbiwenliang.github.io)"
+    ]
+  }
+}
