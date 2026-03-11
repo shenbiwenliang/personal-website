@@ -195,6 +195,18 @@
             overflow: hidden;
         }
 
+        .project-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
         .project-image::before {
             content: '';
             position: absolute;
@@ -472,17 +484,19 @@
             <h2 class="section-title">我的项目</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">🎬</div>
+                    <div class="project-image">
+                        <img src="tupian/image_871480319984165.png" alt="FPV无人机作品" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">FPV竞速赛道设计</h3>
+                        <h3 class="project-title">FPV无人机作品展示</h3>
                         <p class="project-description">
-                            设计并建造了专业的FPV竞速赛道，包含多种技术难点元素，
-                            支持多机同时竞速，为本地FPV爱好者提供训练场地。
+                            这里展示了我在FPV无人机领域的最新作品和技术成果，
+                            包括飞行控制、竞速设计和航拍摄影等方面的创新应用。
                         </p>
                         <div class="project-tech">
+                            <span class="tech-tag">FPV技术</span>
                             <span class="tech-tag">无人机</span>
-                            <span class="tech-tag">赛道设计</span>
-                            <span class="tech-tag">FPV竞速</span>
+                            <span class="tech-tag">航拍摄影</span>
                         </div>
                     </div>
                 </div>
