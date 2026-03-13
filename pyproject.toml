@@ -1,0 +1,269 @@
+[build-system]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fpv-flight-data-analyzer"
+dynamic = ["version"]
+description = "专业的Blackbox飞行数据分析工具，为FPV飞手提供精准的PID调校指导"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "FPV数据分析团队", email = "team@fpv-analysis.com"},
+]
+maintainers = [
+    {name = "FPV数据分析核心团队", email = "core@fpv-analysis.com"},
+]
+
+classifiers = [
+    # 开发状态
+    "Development Status :: 5 - Production/Stable",
+
+    # 目标受众
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+
+    # 主题
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+
+    # 许可证
+    "License :: OSI Approved :: MIT License",
+
+    # 支持的Python版本
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+
+    # 操作系统
+    "Operating System :: OS Independent",
+
+    # 语言
+    "Natural Language :: English",
+    "Natural Language :: Chinese (Simplified)",
+
+    # 特定领域
+    "Framework :: Blackbox",
+    "Framework :: Betaflight",
+    "Framework :: FPV",
+    "Framework :: Flight Control",
+    "Framework :: PID Control",
+]
+
+keywords = [
+    "fpv", "flight data", "blackbox", "pid tuning", "drone analysis",
+    "flight control", "data visualization", "performance analysis",
+    "nicholas sherlock", "betaflight", "quadcopter", "multirotor",
+    "flight recorder", "data parser", "oscillation detection",
+    "stability index", "response analysis", "motor output",
+    "gyroscope data", "flight performance", "tuning guide",
+    "FPV", "飞行数据", "黑匣子", "PID调校", "无人机分析",
+    "飞行控制", "数据可视化", "性能分析", "尼古拉斯·舍洛克",
+    "Betaflight", "四旋翼", "多旋翼", "飞行记录器", "数据解析",
+    "振荡检测", "稳定性指数", "响应分析", "电机输出", "陀螺仪数据"
+]
+
+dependencies = [
+    "numpy>=1.19.0,<2.0.0",
+    "pandas>=1.3.0,<2.0.0",
+    "matplotlib>=3.4.0,<4.0.0",
+]
+
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.910",
+    "sphinx>=4.0.0",
+    "mkdocs>=1.2.0",
+    "bandit>=1.7.0",
+    "safety>=2.3.0",
+    "detect-secrets>=1.4.0",
+    "pytest-cov",
+    "coverage",
+    "sphinx-rtd-theme",
+    "mkdocs-material",
+]
+
+test = [
+    "pytest>=6.0.0",
+    "pytest-cov",
+    "coverage",
+    "mock",
+    "freezegun",
+]
+
+docs = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme",
+    "mkdocs>=1.2.0",
+    "mkdocs-material",
+]
+
+security = [
+    "bandit>=1.7.0",
+    "safety>=2.3.0",
+    "detect-secrets>=1.4.0",
+    "pyupdater",
+]
+
+all = [
+    "numpy>=1.19.0,<2.0.0",
+    "pandas>=1.3.0,<2.0.0",
+    "matplotlib>=3.4.0,<4.0.0",
+    "pytest>=6.0.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.910",
+    "sphinx>=4.0.0",
+    "mkdocs>=1.2.0",
+    "bandit>=1.7.0",
+    "safety>=2.3.0",
+    "detect-secrets>=1.4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/fpv-team/blackbox-analysis"
+Documentation = "https://fpv-analysis.demo.com"
+Repository = "https://github.com/fpv-team/blackbox-analysis.git"
+"Bug Reports" = "https://github.com/fpv-team/blackbox-analysis/issues"
+"Source Code" = "https://github.com/fpv-team/blackbox-analysis"
+Discussions = "https://github.com/fpv-team/blackbox-analysis/discussions"
+Changelog = "https://github.com/fpv-team/blackbox-analysis/blob/main/CHANGELOG.md"
+Security = "https://github.com/fpv-team/blackbox-analysis/security/policy"
+
+[project.scripts]
+fpv-analyze = "Flight_Data_Analysis_Tools:main"
+fpv-flight-analysis = "Flight_Data_Analysis_Tools:main"
+
+[tool.setuptools]
+packages = ["."]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.yml", "*.yaml"]
+
+[tool.setuptools_scm]
+write_to = "Flight_Data_Analysis_Tools.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38', 'py39', 'py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+virtual_env = "venv"
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+per-file-ignores = "__init__.py:F401"
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = [
+    "numpy.*",
+    "pandas.*",
+    "matplotlib.*",
+    "pytest.*",
+    "black.*",
+    "flake8.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --tb=short"
+testpaths = [
+    "tests",
+    "test",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["Flight_Data_Analysis_Tools"]
+omit = [
+    "*/tests/*",
+    "*/test*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
+
+[tool.bandit]
+skips = ["B101", "B301", "B311"]
+
+[tool.safety]
+# Safety configuration for dependency security checking
+# This file is used by the safety CLI tool
+
+[tool.mkdocs]
+site_name = "FPV飞行数据分析工具"
+site_description = "专业的Blackbox飞行数据分析工具"
+site_author = "FPV数据分析团队"
+repo_url = "https://github.com/fpv-team/blackbox-analysis"
+
+[tool.sphinx]
+project = "FPV飞行数据分析工具"
+copyright = "2026, FPV数据分析团队"
+author = "FPV数据分析团队"
+release = "1.0.0"
+language = "zh_CN"

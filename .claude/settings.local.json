@@ -32,7 +32,11 @@
       "Bash(cd \"C:\\\\Users\\\\kmd123\\\\Desktop\\\\claude\" && python -c \"import http.server, socketserver; print\\('Starting server on port 8000'\\); socketserver.TCPServer\\(\\('', 8000\\), http.server.SimpleHTTPRequestHandler\\).serve_forever\\(\\)\")",
       "Bash(tasklist | findstr \"python\")",
       "Bash(git remote:*)",
-      "Bash(git revert:*)"
+      "Bash(git revert:*)",
+      "Bash(ls -la *.bbl)",
+      "Bash(python3 -c \"import struct; print\\('struct module available'\\)\" 2>/dev/null || echo \"struct not available\")",
+      "Bash(python3 -c \"\nwith open\\('btfl_all.bbl', 'rb'\\) as f:\n    header = f.read\\(100\\)\n    print\\('First 100 bytes in hex:'\\)\n    print\\(header.hex\\(\\)\\)\n    print\\(\\)\n    print\\('ASCII representation of first 50 bytes:'\\)\n    print\\(repr\\(header[:50]\\)\\)\n\")",
+      "Bash(python -c \"\ntry:\n    with open\\('btfl_all.bbl', 'rb'\\) as f:\n        header = f.read\\(100\\)\n        print\\('First 100 bytes in hex:'\\)\n        print\\(header.hex\\(\\)\\)\n        print\\(\\)\n        print\\('ASCII representation of first 50 bytes:'\\)\n        print\\(repr\\(header[:50]\\)\\)\nexcept Exception as e:\n    print\\(f'Error: {e}'\\)\n\")"
     ]
   }
 }

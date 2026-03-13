@@ -1,0 +1,152 @@
+# FPV飞行数据分析工具 - 依赖项管理
+
+version: 2
+updates:
+  # Python依赖更新
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+
+    # 依赖组管理
+    groups:
+      production-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      development-dependencies:
+        patterns:
+          - "pytest*"
+          - "black*"
+          - "flake8*"
+          - "mypy*"
+        update-types:
+          - "patch"
+
+    # 版本限制
+    versioning-strategy: increase-if-necessary
+
+    # 自动合并策略
+    open-pull-requests-limit: 10
+    pull-request-branch-name:
+      separator: "-"
+
+    # 审查要求
+    reviewers:
+      - "fpv-team/core"
+    assignees:
+      - "fpv-team/maintainer"
+
+    # 忽略特定更新
+    ignore:
+      - dependency-name: "numpy"
+        versions: ["2.0.0"] # 避免不兼容的2.x版本
+      - dependency-name: "pandas"
+        versions: ["2.0.0"]
+
+  # GitHub Actions工作流更新
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+
+    reviewers:
+      - "fpv-team/devops"
+
+    # Actions版本管理
+    versioning-strategy: lockfile-only
+
+  # 开发工具更新
+  - package-ecosystem: "npm"
+    directory: "/docs"
+    schedule:
+      interval: "monthly"
+    allow:
+      - dependency-type: "direct"
+
+# 安全更新优先级
+security-updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "fpv-team/security"
+
+# 自定义规则
+custom_rules:
+  - name: "numpy-version-check"
+    description: "检查NumPy版本兼容性"
+    paths:
+      - "requirements.txt"
+    matchers:
+      - type: "regex"
+        pattern: "numpy==([0-9]+\\.[0-9]+)"
+        captures:
+          - "major.minor"
+
+  - name: "pandas-version-check"
+    description: "检查Pandas版本兼容性"
+    paths:
+      - "requirements.txt"
+    matchers:
+      - type: "regex"
+        pattern: "pandas==([0-9]+\\.[0-9]+)"
+        captures:
+          - "major.minor"
+
+# 通知设置
+notifications:
+  - provider: "slack"
+    channel: "#fpv-dependencies"
+    events:
+      - "dependency-update"
+      - "security-update"
+    on:
+      all-updates: true
+      security-updates: true
+      direct-vulnerability: true
+
+  - provider: "email"
+    recipients:
+      - "maintainers@fpv-analysis.com"
+    events:
+      - "dependency-update"
+    on:
+      all-updates: false
+      security-updates: true
+
+# 分支保护
+branch-protection:
+  required_status_checks:
+    strict: true
+    contexts:
+      - "ci/test"
+      - "ci/lint"
+      - "ci/build"
+      - "codeql-analysis"
+
+  required_pull_request_reviews:
+    required_approving_review_count: 2
+    dismiss_stale_reviews: true
+    require_code_owner_reviews: true
+
+# 标签管理
+labels:
+  - name: "dependencies"
+    color: "0e8a16"
+  - name: "security"
+    color: "d73a4a"
+  - name: "python"
+    color: "3776ab"
+  - name: "automated-pr"
+    color: "7057ff"

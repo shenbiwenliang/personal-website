@@ -1,0 +1,46 @@
+# 项目归档包说明
+
+## 📦 文件结构
+
+```
+Project_Archive/
+├── Flight_Data_Analysis_Tools.py          # 主分析程序
+├── btfl_all.bbl                          # 原始Blackbox数据
+├── Blackbox_Flight_Analysis_Report.md    # 技术分析报告
+├── PID_Tuning_Guide.md                   # PID调校指南
+├── Flight_Analysis_Summary.md            # 项目成果总结
+├── Tech_Specifications.md                # 技术规范文档
+├── README_Analysis_Tools.md              # 工具使用指南
+├── Quick_Start_Guide.md                  # 快速上手教程
+├── Master_Index.md                       # 项目索引导航
+└── Final_Report.md                       # 最终交付报告
+```
+
+## 🎯 核心功能
+
+### 数据分析能力
+- **文件格式**: Blackbox v2 (Nicholas Sherlock's recorder)
+- **采样频率**: 12kHz
+- **数据量**: 16MB, 217,469个数据点
+- **解析精度**: 精确到每个数据字段
+
+### 智能分析算法
+- **PID性能评估**: P/I/D/F四轴独立分析
+- **振荡检测**: 基于陀螺仪噪声的高频分析
+- **响应性测量**: 电机输出变化率计算
+- **综合评分**: 多维度加权评估系统
+
+### 可视化输出
+- **趋势图表**: PID参数时间序列分析
+- **热力图**: 姿态稳定性可视化
+- **雷达图**: 多维度性能综合评价
+- **导出格式**: PNG(300DPI) + CSV + Markdown
+
+---
+
+**归档日期**: 2026年3月13日
+**项目状态**: ✅ 已完成并归档
+**适用平台**: Windows/Mac/Linux
+**文件大小**: ~16MB数据 + ~50KB代码文档
+
+*本归档包包含完整的FPV飞行数据分析解决方案，可直接用于生产环境。*
